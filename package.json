@@ -1,5 +1,5 @@
 {
-  "name": "eid-invites-",
+  "name": "eid-invites",
   "version": "1.0.0",
   "description": "Animated Eid lunch invitation with RSVP tracking",
   "main": "server.js",
