@@ -1,0 +1,256 @@
+:root {
+  color-scheme: light;
+  --bg: #06141a;
+  --card: rgba(6, 32, 40, 0.82);
+  --card-border: rgba(255, 255, 255, 0.15);
+  --gold: #f8d77f;
+  --gold-strong: #ffcc4d;
+  --text: #f8f5ea;
+  --muted: rgba(248, 245, 234, 0.78);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(255, 208, 94, 0.18), transparent 28%),
+    linear-gradient(160deg, #0a1f26 0%, #051015 45%, #02070a 100%);
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: auto;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  border: 1px solid rgba(248, 215, 127, 0.28);
+  animation: drift 16s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+body::before {
+  top: 5rem;
+  right: -4rem;
+}
+
+body::after {
+  bottom: 3rem;
+  left: -6rem;
+  animation-delay: -6s;
+}
+
+.glow {
+  position: fixed;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.glow-left {
+  top: -8rem;
+  left: -10rem;
+  background: rgba(255, 204, 77, 0.2);
+}
+
+.glow-right {
+  right: -8rem;
+  bottom: -8rem;
+  background: rgba(86, 196, 255, 0.16);
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 68rem);
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero-card,
+.rsvp-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 1.75rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.hero-card {
+  min-height: 60vh;
+  display: grid;
+  align-content: center;
+  gap: 1.25rem;
+  animation: rise 1s ease-out both;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+  color: var(--gold);
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.lede,
+.form-copy,
+.details-grid p,
+label,
+.form-status {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.lede,
+.form-copy {
+  max-width: 40rem;
+  font-size: 1.05rem;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.details-grid article {
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cta-link,
+button {
+  justify-self: start;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.95rem 1.5rem;
+  font: inherit;
+  font-weight: 700;
+  color: #091218;
+  background: linear-gradient(120deg, var(--gold) 0%, var(--gold-strong) 100%);
+  box-shadow: 0 16px 36px rgba(255, 204, 77, 0.28);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.cta-link:hover,
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px rgba(255, 204, 77, 0.36);
+}
+
+.rsvp-card {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.rsvp-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.count-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.95rem;
+  padding: 0.9rem 1rem;
+  font: inherit;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(248, 215, 127, 0.55);
+  outline-offset: 1px;
+}
+
+.form-status {
+  margin: 0;
+  min-height: 1.5rem;
+}
+
+.form-status.success {
+  color: #9ff1b9;
+}
+
+.form-status.error {
+  color: #ffb3b3;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1rem, -1rem, 0) scale(1.08);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-card,
+  .rsvp-card {
+    padding: 1.4rem;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 14vw, 4rem);
+  }
+}

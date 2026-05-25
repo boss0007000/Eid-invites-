@@ -1,0 +1,26 @@
+{
+  "name": "eid-invites",
+  "version": "1.0.0",
+  "description": "Animated Eid lunch invitation with RSVP tracking",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boss0007000/Eid-invites-.git"
+  },
+  "keywords": [
+    "eid",
+    "invitation",
+    "rsvp"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/boss0007000/Eid-invites-/issues"
+  },
+  "homepage": "https://github.com/boss0007000/Eid-invites-#readme"
+}
